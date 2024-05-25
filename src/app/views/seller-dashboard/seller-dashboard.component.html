@@ -1,0 +1,74 @@
+<header class="p-4 dark:bg-gray-100 dark:text-gray-800">
+	<div class="container flex justify-between mx-auto">
+		<div class="flex justify-center">
+            <i class="fas fa-home text-cyan-950"></i>
+		</div>
+		<div class="items-center flex-shrink-0 hidden lg:flex">
+			<button (click)="logout()" class="px-8 py-3 font-semibold rounded dark:bg-violet-600 dark:text-gray-50">Log out</button>
+		</div>
+		<button class="p-4 lg:hidden">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6 dark:text-gray-800">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+			</svg>
+		</button>
+	</div>
+</header>
+<div class="flex min-h-screen bg-gray-100">
+    <!-- Sidebar for Filters -->
+    <div class="w-1/4 p-6 bg-white border-r">
+      <h2 class="text-2xl font-bold mb-4">Filters</h2>
+      <form>
+        <div class="mb-4">
+          <label for="location" class="block text-sm font-medium text-gray-700">Location</label>
+          <input type="text" id="location" name="location" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+        </div>
+        <div class="mb-4">
+          <label for="price" class="block text-sm font-medium text-gray-700">Price Range</label>
+          <input type="text" id="price" name="price" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+        </div>
+        <div class="mb-4">
+          <label for="bedrooms" class="block text-sm font-medium text-gray-700">Bedrooms</label>
+          <select id="bedrooms" name="bedrooms" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+            <option value="">Any</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4+</option>
+          </select>
+        </div>
+        <div class="mb-4">
+          <label for="bathrooms" class="block text-sm font-medium text-gray-700">Bathrooms</label>
+          <select id="bathrooms" name="bathrooms" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+            <option value="">Any</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3+</option>
+          </select>
+        </div>
+        <div class="flex justify-end">
+          <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Apply Filters</button>
+        </div>
+      </form>
+    </div>
+  
+    <!-- Main Content Area for Property Cards -->
+    <div class="flex-1 p-6">
+      <h2 class="text-2xl font-bold mb-4">Rental Properties</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Property Card -->
+        <div class="bg-white p-4 rounded-lg shadow-md">
+          <img src="property-image.jpg" alt="Property Image" class="w-full h-48 object-cover rounded-t-lg">
+          <div class="p-4">
+            <h3 class="text-xl font-bold">Beautiful Apartment</h3>
+            <p class="text-gray-600">2 beds, 2 baths</p>
+            <p class="text-gray-800 font-semibold">$1,500 / month</p>
+            <div class="mt-4 flex justify-between items-center">
+              <button class="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">Like</button>
+              <button class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">Interested</button>
+            </div>
+          </div>
+        </div>
+        <!-- Add more property cards as needed -->
+      </div>
+    </div>
+  </div>

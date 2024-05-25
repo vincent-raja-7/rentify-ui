@@ -12,11 +12,11 @@ export class ApiServiceService {
   constructor(public http: HttpClient) { }
 
   httpGetHelp(apiURL: string): Observable<any> {
-    return this.http.get<any>(API.baseURL+apiURL);
+    return this.http.get<any>(API.prodBaseURL+apiURL);
   }
 
   httpPostHelp(apiURL: string, data: any): Observable<any> {
-    return this.http.post<any>(API.baseURL+apiURL, data);
+    return this.http.post<any>(API.prodBaseURL+apiURL, data);
   }
 
   authenticateUser(userLoginDetails: UserLoginDetails): Observable<any>{

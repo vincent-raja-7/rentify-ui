@@ -6,9 +6,14 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class CommonService {
   public role = new BehaviorSubject<String>("");
+  public userName = new BehaviorSubject<String>("");
   constructor() { }
 
   setUserRole(args: any){
     this.role.next(args);
+  }
+
+  setUserName(args: any){
+    this.userName.next(args);
   }
 }

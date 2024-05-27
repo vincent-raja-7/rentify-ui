@@ -1,0 +1,110 @@
+<!-- src/app/property-form-dialog/property-form-dialog.component.html -->
+<div class="p-6 bg-white rounded-lg shadow-md">
+  <h2 class="text-2xl font-bold mb-4">Add Property</h2>
+  <form [formGroup]="propertyForm" (ngSubmit)="onSubmit()" class="grid grid-cols-2 gap-4">
+    <div class="col-span-2">
+      <label for="address" class="block text-sm font-medium text-gray-700">Address</label>
+      <input id="address" type="text" formControlName="address"
+             class="mt-1 block w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+      <div *ngIf="propertyForm.get('address').touched && propertyForm.get('address').invalid" class="text-sm text-red-600 mt-1">
+        Address is required.
+      </div>
+    </div>
+
+    <div>
+      <label for="city" class="block text-sm font-medium text-gray-700">City</label>
+      <input id="city" type="text" formControlName="city"
+             class="mt-1 block w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+      <div *ngIf="propertyForm.get('city').touched && propertyForm.get('city').invalid" class="text-sm text-red-600 mt-1">
+        City is required.
+      </div>
+    </div>
+
+    <div>
+      <label for="state" class="block text-sm font-medium text-gray-700">State</label>
+      <input id="state" type="text" formControlName="state"
+             class="mt-1 block w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+      <div *ngIf="propertyForm.get('state').touched && propertyForm.get('state').invalid" class="text-sm text-red-600 mt-1">
+        State is required.
+      </div>
+    </div>
+
+    <div>
+      <label for="zipCode" class="block text-sm font-medium text-gray-700">Zip Code</label>
+      <input id="zipCode" type="text" formControlName="zipCode"
+             class="mt-1 block w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+      <div *ngIf="propertyForm.get('zipCode').touched && propertyForm.get('zipCode').invalid" class="text-sm text-red-600 mt-1">
+        <div *ngIf="propertyForm.get('zipCode').errors?.required">Zip Code is required.</div>
+        <div *ngIf="propertyForm.get('zipCode').errors?.pattern">Invalid Zip Code.</div>
+      </div>
+    </div>
+
+    <div>
+      <label for="country" class="block text-sm font-medium text-gray-700">Country</label>
+      <input id="country" type="text" formControlName="country"
+             class="mt-1 block w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+      <div *ngIf="propertyForm.get('country').touched && propertyForm.get('country').invalid" class="text-sm text-red-600 mt-1">
+        Country is required.
+      </div>
+    </div>
+
+    <div>
+      <label for="numberOfBedRooms" class="block text-sm font-medium text-gray-700">Number of Bedrooms</label>
+      <input id="numberOfBedRooms" type="number" formControlName="numberOfBedRooms"
+             class="mt-1 block w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+      <div *ngIf="propertyForm.get('numberOfBedRooms').touched && propertyForm.get('numberOfBedRooms').invalid" class="text-sm text-red-600 mt-1">
+        <div *ngIf="propertyForm.get('numberOfBedRooms').errors?.required">Number of Bedrooms is required.</div>
+        <div *ngIf="propertyForm.get('numberOfBedRooms').errors?.min">Must be at least 1.</div>
+      </div>
+    </div>
+
+    <div>
+      <label for="numberOfBathrooms" class="block text-sm font-medium text-gray-700">Number of Bathrooms</label>
+      <input id="numberOfBathrooms" type="number" formControlName="numberOfBathrooms"
+             class="mt-1 block w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+      <div *ngIf="propertyForm.get('numberOfBathrooms').touched && propertyForm.get('numberOfBathrooms').invalid" class="text-sm text-red-600 mt-1">
+        <div *ngIf="propertyForm.get('numberOfBathrooms').errors?.required">Number of Bathrooms is required.</div>
+        <div *ngIf="propertyForm.get('numberOfBathrooms').errors?.min">Must be at least 1.</div>
+      </div>
+    </div>
+
+    <div class="col-span-2">
+      <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+      <textarea id="description" formControlName="description"
+                class="mt-1 block w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
+      <div *ngIf="propertyForm.get('description').touched && propertyForm.get('description').invalid" class="text-sm text-red-600 mt-1">
+        Description is required.
+      </div>
+    </div>
+
+    <div class="col-span-2">
+      <label for="price" class="block text-sm font-medium text-gray-700">Price</label>
+      <input id="price" type="number" formControlName="price"
+             class="mt-1 block w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+      <div *ngIf="propertyForm.get('price').touched && propertyForm.get('price').invalid" class="text-sm text-red-600 mt-1">
+        <div *ngIf="propertyForm.get('price').errors?.required">Price is required.</div>
+        <div *ngIf="propertyForm.get('price').errors?.min">Must be at least 0.</div>
+      </div>
+    </div>
+
+    <div class="col-span-2">
+      <label for="photo" class="block text-sm font-medium text-gray-700h">Photo</label>
+      <input id="photo" type="text" formControlName="photo" (click)="uploadImage()" [disabled]="true" [(ngModel)]="photoUrl" placeholder="Click to upload"
+             class="mt-1 hover:cursor-pointer block w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+      <div *ngIf="propertyForm.get('photo').touched && propertyForm.get('photo').invalid" class="text-sm text-red-600 mt-1">
+        Photo URL is required.
+      </div>
+    </div>
+
+    <div class="col-span-2 flex justify-end space-x-4 mt-4">
+      <button type="button" (click)="onCancel()"
+              class="px-4 py-2 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+        Cancel
+      </button>
+      <button type="submit"
+              class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+        Save
+      </button>
+    </div>
+  </form>
+</div>

@@ -9,6 +9,9 @@ import { RegisterComponent } from './views/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { SellerDashboardComponent } from './views/seller-dashboard/seller-dashboard.component';
+import { PropertyFormDialogComponent } from './views/seller-dashboard/property-form-dialog/property-form-dialog.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -17,13 +20,16 @@ import { SellerDashboardComponent } from './views/seller-dashboard/seller-dashbo
     LoginComponent,
     HomeComponent,
     RegisterComponent,
-    SellerDashboardComponent
+    SellerDashboardComponent,
+    PropertyFormDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

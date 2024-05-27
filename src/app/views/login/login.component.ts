@@ -35,6 +35,7 @@ export class LoginComponent {
       this.apiService.authenticateUser(userLoginDetails).subscribe((res)=>{
         sessionStorage.setItem("Token",res.jwtToken);
         this.commonService.setUserRole(res.user.role[0].roleName);
+        this.commonService.setUserName(res.user.userName);
         this.authService.setLoginStatus(true);
         if(res.user.role[0].roleName === "Buyer")
           this.router.navigate(["/home"]);

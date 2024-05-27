@@ -1,3 +1,7 @@
 .fa-home{
     font-size: 45px;
 }
+
+.add-product-dialog{
+    overflow-y: auto;
+}
